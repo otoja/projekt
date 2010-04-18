@@ -1,11 +1,9 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
-*/
 
 /**
  * Description of addUserForm
+ *
+ * Klasa przygotowująca formularz dodawania/edycji użytkownika
  *
  * @author kama
  */
@@ -33,8 +31,10 @@ class addUserForm extends createForm {
 
     public function editForm($user) {
         $db=new baseConfig();
+        //edycja danych użytkownika o podanym identyfikatorze
         $query="SELECT * FROM osoba WHERE ident='$user'";
         $res=$db->getRes($query);
+        //funkcja sprawdza czy w bazie, w polach odpowiadających nazwom pól z formularza, znajdują się dane, jeśli tak to wstawia je do formularza.
         if ($res) {
             $zm=mysql_fetch_array($res);
             foreach ($this->input as $key=>$element) {

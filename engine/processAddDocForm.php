@@ -3,6 +3,8 @@
 /**
  * Description of processAddDocForm
  *
+ * Klasa obsługująca formularz dodawania lekarza.
+ * 
  * @author kama
  */
 require_once 'processAddUserForm.php';
@@ -11,6 +13,7 @@ class processAddDocForm extends processAddUserForm {
     public function __construct() {
         parent::__construct();
     }
+    //walidacja danych przy użyciu obiektu klasy validator
     public function validate() {
         parent::validate();
         $val=new validator();
@@ -40,13 +43,13 @@ class processAddDocForm extends processAddUserForm {
         }$val
         ->exc(e_empty);
     }
-
+//dodanie użytkownika do bazy
     public function addToDb() {
         parent::addToDb();
         $qry="INSERT INTO lekarz VALUES('', '$this->last_id','$this->pozw','$this->gab','$this->spec','$this->date','$this->cash','')";
         $db=new baseConfig();
         $id=$this->last_id;
-        $qry2="UPDATE osoba SET mode=1 WHERE osoba.id_osoba='$id'";
+        $qry2="UPDATE osoba SET mode=1 WHERE osoba.id_osoba='$id'";//aktualizacja roli w systemie
         try {
             if (!$this->error) {
                 $db->getRes($qry);

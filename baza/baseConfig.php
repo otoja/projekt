@@ -1,14 +1,12 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
-*/
-
 /**
  * Description of PHPClass
  *
+ * Klasa obsługująca bazę danych
+ *
  * @author kama
  */
+
 class  baseConfig {
 //put your code here
     private $db,$host,$link,$user,$pswd,$result,$id;

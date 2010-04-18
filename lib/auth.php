@@ -1,11 +1,9 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
-*/
 
 /**
  * Description of auth
+ *
+ * logowanie/wylogowywanie/aut
  *
  * @author kama
  */
@@ -24,7 +22,7 @@ class auth {
         $this->pswd=$pswd;
         $this->mode=0;
     }
-
+//sprawdzanie czy użytkownik jest w bazie
     private function checkDb() {
         $db=new baseConfig();
         $qry="SELECT * FROM osoba WHERE ident='$this->ident' AND mail='$this->login'";
@@ -40,7 +38,7 @@ class auth {
         $this->checkDb();
         return $this->exist;
     }
-
+//funkcja do logowania, ustanawianie zmiennych sesyjnych
     public function login() {
         if($this->checkIfExist()) {
             $_SESSION['ident']=$this->ident;
@@ -51,7 +49,7 @@ class auth {
         }
         else $this->failed();
     }
-
+//koniec sesji
     public function logout() {
         if(isset ($_SESSION['login']))
         session_destroy();

@@ -3,6 +3,8 @@
 /**
  * Description of processAddEmpForm
  *
+ * Klasa obsługująca formularza dodawania pracownika innego niż lekarz
+ *
  * @author kama
  */
 require_once 'processAddUserForm.php';
@@ -37,7 +39,7 @@ class processAddEmpForm extends processAddUserForm {
         $qry="INSERT INTO pracownik VALUES('','','$this->last_id','$this->date','$this->stan','$this->cash')";
         $db=new baseConfig();
         $id=$this->last_id;
-        switch($this->stan) {
+        switch($this->stan) {//tworzenie kwerendy w zależności od rodzaju dodawanego użytkownika
             case 'administracja';
                 $qry2="UPDATE osoba SET mode=3 WHERE osoba.id_osoba='$id'";
                 break;

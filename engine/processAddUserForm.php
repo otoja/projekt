@@ -1,16 +1,14 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
-*/
 
 /**
  * Description of processAddUserForm
  *
+ * Główna klasa obsługująca formularz z danymi użytkownika, po niej dziedziczą bardziej szczegółowe formularze
+ *
  * @author kama
  */
 
-//put your code here
+
 require_once '../lib/baseConfig.php';
 require_once '../lib/validator.php';
 class processAddUserForm {
@@ -77,13 +75,12 @@ class processAddUserForm {
                     }
                 }else $val->exc(e_empty);
             }
-//            }else $this->error=1;
         }catch(Exception $error) {
             echo '<font color="red">'.$error.'</font><br>';
             $this->error=1;
         }
     }
-  //generowanie unikalnego identyfikatora
+  //generowanie unikalnego identyfikatora na podstawie imienia, nazwiska, peselu i losowo generowanej liczby
     private function genId() {
         $id=substr($this->fname, 0, 3);
         $id.=substr($this->lname, 0, 3);

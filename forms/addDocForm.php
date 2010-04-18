@@ -1,11 +1,10 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
-*/
+
 
 /**
  * Description of addDocForm
+ *
+ * Klasa tworząca formularz dodawania/edycji lekarza
  *
  * @author kama
  */
@@ -29,12 +28,14 @@ class addDocForm extends addUserForm {
         parent::editForm($user);
          $db=new baseConfig();
 
+         //znalezienie lekarza o podanym identyfikatorze
         $sql = "SELECT * \n"
                 . "FROM lekarz,osoba \n"
                 . "WHERE osoba.ident='$user' AND osoba.id_osoba=lekarz.id_osoba";
 
         $res=$db->getRes($sql);
         if ($res) {
+            //dodawanie danych z bazy do formularza
             $zm= mysql_fetch_array($res);
             foreach ($this->input as $key=>$element) {
                 if($element['type']=='text')

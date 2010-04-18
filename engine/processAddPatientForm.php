@@ -1,11 +1,9 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
-*/
 
 /**
  * Description of processAddUserForm
+ *
+ * Klasa obsługująca formularz dodawania pacjenta
  *
  * @author kama
  */
@@ -47,7 +45,7 @@ class processAddPatientForm extends processAddUserForm {
         parent::addToDb();
         $qry="INSERT INTO pacjent VALUES('','$this->last_id','$this->ofname','$this->olname','$this->opesel','$this->krew','$this->plec')";
         $id=$this->last_id;
-        $qry2="UPDATE osoba SET mode=2 WHERE osoba.id_osoba='$id'";
+        $qry2="UPDATE osoba SET mode=2 WHERE osoba.id_osoba='$id'";//update roli użytkownika w systemie
         $db=new baseConfig();
         if(!$this->error){
             $db->getRes($qry);

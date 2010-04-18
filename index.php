@@ -12,11 +12,7 @@ else echo 'nie jestes zalogowany';
     </head>
     <body>
         <?php
-        // put your code here
-
-        //include_once './baza/baseConfig.php';
         $db=new baseConfig();
-        //$db->connect();
         ?>
         <a href="./mod/modelUser.php?mode=pacjent">Dodaj pacjenta</a>
         <a href="./forms/addEmpForm.php">Dodaj pracownika</a>

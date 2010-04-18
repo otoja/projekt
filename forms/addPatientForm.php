@@ -1,11 +1,9 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
-*/
 
 /**
  * Description of addPatientForm
+ *
+ * Klasa tworząca formularz dodawania/edycji pacjenta
  *
  * @author kama
  */

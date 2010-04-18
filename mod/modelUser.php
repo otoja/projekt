@@ -1,11 +1,9 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
-*/
 
 /**
  * Description of modelUser
+ *
+ * Klasa do obsługi danych użytkownika
  *
  * @author kama
  */
@@ -19,6 +17,7 @@ require_once '../lib/baseConfig.php';
 
 class modelUser {
 //put your code here
+    //dodawanie uzytkownika w zaleznosci od jego roli w systemie
     public function addUser($mode) {
         switch($mode) {
             case 'pacjent': {
@@ -53,9 +52,9 @@ class modelUser {
             default: break;
         }
     }
-
+//edycja danych użytkownika ze wskazanym identyfikatorem
     public function editUser($ident) {
-
+//sprawdzanie kim jest użytkownik
         $mode=$this->getUserMode($ident);
         if ($mode) {
             switch($mode) {
@@ -93,7 +92,7 @@ class modelUser {
             }
         }else echo 'Brak użytkownika';
     }
-
+//rola użytkownika w systemie na podstawie danych w bazie
     public function getUserMode($ident) {
         $db=new baseConfig();
         $query="SELECT nazwa \n"

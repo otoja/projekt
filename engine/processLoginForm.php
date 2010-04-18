@@ -1,11 +1,9 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
-*/
 
 /**
  * Description of processLoginForm
+ *
+ * Klasa obsługująca formularz logowania
  *
  * @author kama
  */
