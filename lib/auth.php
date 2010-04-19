@@ -8,6 +8,7 @@
  * @author kama
  */
 require_once 'baseConfig.php';
+require_once '../mod/modelUser.php';
 session_start();
 class auth {
 //put your code here
@@ -25,6 +26,8 @@ class auth {
 //sprawdzanie czy użytkownik jest w bazie
     private function checkDb() {
         $db=new baseConfig();
+        $user=new modelUser();
+        $this->mode=$user->getUserMode($this->ident);
         $qry="SELECT * FROM osoba WHERE ident='$this->ident' AND mail='$this->login'";
         $res=mysql_fetch_array($db->getRes($qry));
         if ($res) {
@@ -52,7 +55,7 @@ class auth {
 //koniec sesji
     public function logout() {
         if(isset ($_SESSION['login']))
-        session_destroy();
+        session_unset();
         //header(sprintf('WWW-Authenticate: Basic realm="%s"', $this->sRealm));
         header('HTTP/1.0 401 Unauthorized');
     }

@@ -119,7 +119,7 @@ class modelUser {
         }else echo 'Brak użytkownika';
     }
 //rola użytkownika w systemie na podstawie danych w bazie
-    private function getUserMode($ident) {
+    public function getUserMode($ident) {
         $db=new baseConfig();
         $query="SELECT nazwa \n"
                 . "FROM mode,osoba \n"
