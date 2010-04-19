@@ -23,14 +23,19 @@ class modelUser {
             case 'pacjent': {
                     $form=new addPatientForm($_SERVER['PHP_SELF'], 'post');
                     $form->display();
-                    
+
                     if ($_SERVER['REQUEST_METHOD']=='POST') {
                         $add=new processAddPatientForm();
                         $add->validate();
                         $add->addToDb();
                         echo 'tu';
                     }
-                }break;
+                }break
+
+
+
+
+                ;
             case 'pracownik': {
                     $form=new addEmpForm($_SERVER['PHP_SELF'], 'post');
                     $form->display();
@@ -39,7 +44,12 @@ class modelUser {
                         $add->validate();
                         $add->addToDb();
                     }
-                }break;
+                }break
+
+
+
+
+                ;
             case 'lekarz': {
                     $form= new addDocForm($_SERVER['PHP_SELF'],'post');
                     $form->display();
@@ -67,7 +77,12 @@ class modelUser {
                             $add->validate();
                             $add->addToDb();
                         }
-                    }break;
+                    }break
+
+
+
+
+                    ;
                 case 'pracownik': {
                         $form=new addEmpForm($_SERVER['PHP_SELF'], 'post');
                         $form->editForm($ident);
@@ -77,7 +92,12 @@ class modelUser {
                             $add->validate();
                             $add->addToDb();
                         }
-                    }break;
+                    }break
+
+
+
+
+                    ;
                 case 'lekarz': {
                         $form= new addDocForm($_SERVER['PHP_SELF'],'post');
                         $form->editForm($ident);
@@ -87,13 +107,19 @@ class modelUser {
                             $add->validate();
                             $add->addToDb();
                         }
-                    } break;
-                default:echo 'błąd'; break;
+                    } break
+
+
+
+
+                    ;
+                default:echo 'błąd';
+                    break;
             }
         }else echo 'Brak użytkownika';
     }
 //rola użytkownika w systemie na podstawie danych w bazie
-    public function getUserMode($ident) {
+    private function getUserMode($ident) {
         $db=new baseConfig();
         $query="SELECT nazwa \n"
                 . "FROM mode,osoba \n"
@@ -102,13 +128,33 @@ class modelUser {
         $mode=mysql_fetch_row($zm);
         return $mode[0];
     }
+//pobranie danych uzytkownika z bazy
+    public function getUserData($ident) {
+        $db=new baseConfig();
+
+        $mode=$this->getUserMode($ident);
+        if ($mode)
+            switch ($mode) {
+                case 'pacjent' :$query="SELECT * FROM osoba,pacjent where ident='$ident' AND osoba.id_osoba=pacjent.id_osoba";
+                    break;
+                case 'lekarz':$query="SELECT * FROM osoba,lekarz where ident='$ident' AND osoba.id_osoba=lekarz.id_osoba";
+                    break;
+                case 'admin':$query="SELECT * FROM osoba,pracownik where ident='$ident' AND osoba.id_osoba=pracownik.id_osoba";
+                    break;
+                case 'administrator':$query="SELECT * FROM osoba,pracownik where ident='$ident' AND osoba.id_osoba=pracownik.id_osoba";
+                    break;
+                case 'rejestracja':$query="SELECT * FROM osoba,pracownik where ident='$ident' AND osoba.id_osoba=pracownik.id_osoba";
+                    break;
+                default: return false;
+            }
+        else return false;
+
+        $res=$db->getRes($query);
+        return mysql_fetch_array($res);
+    }
+
 }
 $mod=new modelUser();
- //  echo $_GET['mode'];
-
-   // $mod->addUser('pacjent');
-
-
-$mod->editUser('kamprz776178660');
-
+// $mod->addUser('pacjent');
+ $user=$mod->getUserData('kamprz776178660');
 ?>
