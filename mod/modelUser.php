@@ -28,7 +28,6 @@ class modelUser {
                         $add=new processAddPatientForm();
                         $add->validate();
                         $add->addToDb();
-                        echo 'tu';
                     }
                 }break
 
@@ -155,6 +154,7 @@ class modelUser {
 
 }
 $mod=new modelUser();
-// $mod->addUser('pacjent');
- $user=$mod->getUserData('kamprz776178660');
+$mod->addUser('pacjent');
+//$mod->editUser('kamprz776178660');
+// $user=$mod->getUserData('kamprz776178660');
 ?>
