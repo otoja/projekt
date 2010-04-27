@@ -7,13 +7,13 @@
  *
  * @author kama
  */
-require_once '../forms/addPatientForm.php';
-require_once '../forms/addEmpForm.php';
-require_once '../forms/addDocForm.php';
-require_once '../engine/processAddEmpForm.php';
-require_once '../engine/processAddPatientForm.php';
-require_once '../engine/processAddDocForm.php';
-require_once '../lib/baseConfig.php';
+//require_once '../forms/addPatientForm.php';
+//require_once '../forms/addEmpForm.php';
+//require_once '../forms/addDocForm.php';
+//require_once '../engine/processAddEmpForm.php';
+//require_once '../engine/processAddPatientForm.php';
+//require_once '../engine/processAddDocForm.php';
+//require_once '../lib/baseConfig.php';
 
 class modelUser {
 //put your code here
@@ -154,7 +154,7 @@ class modelUser {
 
 }
 $mod=new modelUser();
-$mod->addUser('pacjent');
+//$mod->addUser('pacjent');
 //$mod->editUser('kamprz776178660');
 // $user=$mod->getUserData('kamprz776178660');
 ?>

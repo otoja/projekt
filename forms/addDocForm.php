@@ -14,12 +14,12 @@ class addDocForm extends addUserForm {
     //put your code here
     public function __construct($action, $method) {
         parent::__construct($action, $method);
-        $this->addInput('spec', 'text', '', 'Specjalizacja',20);
-        $this->addInput('gab', 'text', '', 'Gabinet',4); 
-        $this->addInput('pozw', 'text', '', 'Pozwolenie',7);
-        $this->addInput('date', 'text', '', 'Data zatrudnienia',10);
-        $this->addInput('cash', 'text', '', 'Wynagrodzenie','');
-        $this->addInput('wyslij', 'submit', 'wyslij', '','');
+        $this->addInput('spec', 'text', '', 'Specjalizacja',20,'');
+        $this->addInput('gab', 'text', '', 'Gabinet',4,'');
+        $this->addInput('pozw', 'text', '', 'Pozwolenie',7,'');
+        $this->addInput('date', 'text', '', 'Data zatrudnienia',10,'');
+        $this->addInput('cash', 'text', '', 'Wynagrodzenie','','');
+        $this->addInput('wyslij', 'submit', 'wyslij', '','','');
     }
     public function display() {
         echo $this->getHTML();

@@ -12,12 +12,12 @@ class addEmpForm extends addUserForm {
 //put your code here
     public function __construct($action, $method) {
         parent::__construct($action, $method);
-        $this->addInput('stan', 'radio', 'administracja', 'Administracja','');
-        $this->addInput('stan', 'radio', 'admin', 'Admin','');
-        $this->addInput('stan', 'radio', 'rejestracja', 'Rejestracja','');
-        $this->addInput('date', 'text', '', 'Data zatrudnienia',10);
-        $this->addInput('cash', 'text', '', 'Wynagrodzenie','');
-        $this->addInput('wyslij', 'submit', 'wyslij', '','');
+        $this->addInput('stan', 'radio', 'administracja', 'Administracja','','');
+        $this->addInput('stan', 'radio', 'admin', 'Admin','','');
+        $this->addInput('stan', 'radio', 'rejestracja', 'Rejestracja','','');
+        $this->addInput('date', 'text', '', 'Data zatrudnienia',10,'');
+        $this->addInput('cash', 'text', '', 'Wynagrodzenie','','');
+        $this->addInput('wyslij', 'submit', 'wyslij', '','','');
     }
 
     public function display() {
