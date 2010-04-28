@@ -39,9 +39,8 @@ abstract class createForm {
 //        print_r($this->elements);
 //        exit;
         foreach ($this->elements as $key=>$input) {
-
             if($input['mode']=='input') {
-                $code .= $this->elements[$key][0]['text'] .' <'.$input['mode'] .' name="'.$this->elements[$key][0]['name'] .'" type="'.$this->elements[$key][0]['type'].'" value="'.$this->elements[$key][0]['value'].'" maxlength="'.$this->elements[$key][0]['max'].'"'.$this->elements[$key][0]['extra'].'><br />';
+                $code .= $this->elements[$key][0]['text'] .' <'.$input['mode'] .' name="'.$this->elements[$key][0]['name'] .'" type="'.$this->elements[$key][0]['type'].'" value="'.$this->elements[$key][0]['value'].'" maxlength="'.$this->elements[$key][0]['max'].'"'.$this->elements[$key][0]['extra'].'>';
             }
             if($input['mode']=='select') {
                 $code.=' <'.$input['mode'].' name="'.$input['name'].' '.$input['extra'].'">';
@@ -49,11 +48,11 @@ abstract class createForm {
                 foreach ($opt as $key=>$option) {
                     $code.='<option value="'.$option['value'].'">'.$option['text'].'</option>';
                 }
-                $code.= '</select></br>';
+                $code.= '</select>';
             }
             if ($input['mode']=='textarea'){
                 print_r($input);
-                $code.=$input['text'].'<'.$input['mode'].' name="'.$input['name'].'" rows="'.$input['rows'].'" cols="'.$input['cols'].'" '.$input['extra'].'></textarea></br>';
+                $code.=$input['text'].'<'.$input['mode'].' name="'.$input['name'].'" rows="'.$input['rows'].'" cols="'.$input['cols'].'" '.$input['extra'].'></textarea>';
             }
         }
         return $code.'</form>';

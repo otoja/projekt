@@ -12,12 +12,12 @@ class addEmpForm extends addUserForm {
 //put your code here
     public function __construct($action, $method) {
         parent::__construct($action, $method);
-        $this->addInput('stan', 'radio', 'administracja', 'Administracja','','');
+        $this->addInput('stan', 'radio', 'administracja', '<br>Administracja','','');
         $this->addInput('stan', 'radio', 'admin', 'Admin','','');
         $this->addInput('stan', 'radio', 'rejestracja', 'Rejestracja','','');
-        $this->addInput('date', 'text', '', 'Data zatrudnienia',10,'');
-        $this->addInput('cash', 'text', '', 'Wynagrodzenie','','');
-        $this->addInput('wyslij', 'submit', 'wyslij', '','','');
+        $this->addInput('date', 'text', '', '<br>Data zatrudnienia',10,'size=10');
+        $this->addInput('cash', 'text', '', '<br>Wynagrodzenie','','');
+        $this->addInput('wyslij', 'submit', 'wyslij', '<br>','','');
     }
 
     public function display() {
@@ -44,4 +44,7 @@ class addEmpForm extends addUserForm {
         }else echo 'Nie ma takiego użytkownika';
     }
 }
+
+$f=new addEmpForm($_SERVER['PHP_SELF'],'post');
+$f->display();
 ?>
