@@ -8,7 +8,7 @@
  *
  * @author kama
  */
-require_once 'addUserForm.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/addUserForm.php';
 
 class addDocForm extends addUserForm {
     //put your code here

@@ -7,7 +7,7 @@
  *
  * @author kama
  */
-require_once 'addUserForm.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/addUserForm.php';
 class addEmpForm extends addUserForm {
 //put your code here
     public function __construct($action, $method) {
@@ -45,6 +45,6 @@ class addEmpForm extends addUserForm {
     }
 }
 
-$f=new addEmpForm($_SERVER['PHP_SELF'],'post');
-$f->display();
+//$f=new addEmpForm($_SERVER['PHP_SELF'],'post');
+//$f->display();
 ?>

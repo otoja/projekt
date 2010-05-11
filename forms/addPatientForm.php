@@ -7,7 +7,7 @@
  *
  * @author kama
  */
-require_once 'addUserForm.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/addUserForm.php';
 class addPatientForm extends addUserForm {
     //put your code here
     public function __construct($action, $method) {
@@ -23,7 +23,7 @@ class addPatientForm extends addUserForm {
         $this->addInput('rh', 'radio', '+', '+','','');
         $this->addInput('plec', 'radio', 'k', '<br>Kobieta','','');
         $this->addInput('plec', 'radio', 'm', 'Mężczyzna','','');
-        $this->addInput('wyslij', 'submit', '<br>wyslij', '','','');
+        $this->addInput('wyslij', 'submit', 'wyslij', '<br>','','');
     }
 
     public function display() {
@@ -41,10 +41,10 @@ class addPatientForm extends addUserForm {
         
         if ($res) {
             $zm= mysql_fetch_array($res);
-            foreach ($this->input as $key=>$element) {
-                if($element['type']=='text')
-                    if(!empty($zm[$element['name']])) {
-                        $this->input[$key]['value']=stripslashes($zm[$element['name']]);
+            foreach ($this->elements as $key=>$element) {
+                if($element['mode']=='input')
+                    if(!empty($zm[$element[0]['name']])) {
+                        $this->elements[$key][0]['value']=stripslashes($zm[$element[0]['name']]);
                     }
             }
         }else echo 'Nie ma takiego użytkownika';

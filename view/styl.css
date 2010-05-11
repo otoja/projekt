@@ -1,0 +1,79 @@
+/* 
+    Document   : styl
+    Created on : 2010-05-04, 13:24:54
+    Author     : kama
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+body{
+
+}
+h1 {
+    font-family: Arial,Helvetica,sans-serif;  
+    color: #666666;
+    text-align: center;
+    vertical-align: middle;
+}
+#menu-top{
+   float:right;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: silver;
+    background-color: gray;
+}
+#logo{
+    width: 128px;
+    height:64px;
+
+    background-color: #cccccc;
+}
+#login{
+    float:right;
+    background-color: #ccccff;
+}
+#top-center{
+    background-color: #9999ff;
+    text-align: center;
+}
+ul, ul li{
+    list-style: none;
+}
+
+input {
+}
+label{
+    display: inline;
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+#bottom{
+    font-size: 8px;
+    font-family: Arial,Helvetica,sans-serif;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: silver;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 5px;
+
+}
+#center{
+    padding-bottom: 5px;
+}
+#left{
+ float: left;
+    background-color: #f0dddd;
+    margin-bottom: 2px;
+    height: 100%;
+}
+#cont{
+  
+    background-color: #cde3e7;
+}

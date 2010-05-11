@@ -7,13 +7,14 @@
  *
  * @author kama
  */
-//require_once '../forms/addPatientForm.php';
-//require_once '../forms/addEmpForm.php';
-//require_once '../forms/addDocForm.php';
-//require_once '../engine/processAddEmpForm.php';
-//require_once '../engine/processAddPatientForm.php';
-//require_once '../engine/processAddDocForm.php';
-//require_once '../lib/baseConfig.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/addPatientForm.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/addEmpForm.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/addDocForm.php';
+//require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/engine/processAddEmpForm.php';
+//require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/engine/processAddPatientForm.php';
+//require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/engine/processAddDocForm.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/auth.php';
 
 class modelUser {
 //put your code here
@@ -21,42 +22,16 @@ class modelUser {
     public function addUser($mode) {
         switch($mode) {
             case 'pacjent': {
-                    $form=new addPatientForm($_SERVER['PHP_SELF'], 'post');
+                    $form=new addPatientForm('../engine/processAddPatientForm.php', 'post');
                     $form->display();
-
-                    if ($_SERVER['REQUEST_METHOD']=='POST') {
-                        $add=new processAddPatientForm();
-                        $add->validate();
-                        $add->addToDb();
-                    }
-                }break
-
-
-
-
-                ;
+                }break;
             case 'pracownik': {
-                    $form=new addEmpForm($_SERVER['PHP_SELF'], 'post');
+                    $form=new addEmpForm('../engine/processAddEmpForm.php', 'post');
                     $form->display();
-                    if ($_SERVER['REQUEST_METHOD']=='POST') {
-                        $add=new processAddEmpForm();
-                        $add->validate();
-                        $add->addToDb();
-                    }
-                }break
-
-
-
-
-                ;
+                }break;
             case 'lekarz': {
-                    $form= new addDocForm($_SERVER['PHP_SELF'],'post');
+                    $form= new addDocForm('../engine/processAddDocForm.php','post');
                     $form->display();
-                    if($_SERVER['REQUEST_METHOD']=='POST') {
-                        $add=new processAddDocForm();
-                        $add->validate();
-                        $add->addToDb();
-                    }
                 }
             default: break;
         }
@@ -76,12 +51,7 @@ class modelUser {
                             $add->validate();
                             $add->addToDb();
                         }
-                    }break
-
-
-
-
-                    ;
+                    }break;
                 case 'pracownik': {
                         $form=new addEmpForm($_SERVER['PHP_SELF'], 'post');
                         $form->editForm($ident);
@@ -92,6 +62,7 @@ class modelUser {
                             $add->addToDb();
                         }
                     }break
+
 
 
 
@@ -107,6 +78,7 @@ class modelUser {
                             $add->addToDb();
                         }
                     } break
+
 
 
 
@@ -152,9 +124,12 @@ class modelUser {
         return mysql_fetch_array($res);
     }
 
+
 }
 $mod=new modelUser();
-//$mod->addUser('pacjent');
-//$mod->editUser('kamprz776178660');
+if (isset($_GET['mode']))
+    $mod->addUser($_GET['mode']);
+if (isset($_GET['edit']))
+    $mod->editUser('kamprz776178660');
 // $user=$mod->getUserData('kamprz776178660');
 ?>

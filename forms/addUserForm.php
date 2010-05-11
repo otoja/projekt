@@ -7,8 +7,8 @@
  *
  * @author kama
  */
-require_once '../lib/baseConfig.php';
-require_once 'createForm.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/createForm.php';
 class addUserForm extends createForm {
     //put your code here
     public function __construct($action, $method) {
@@ -35,12 +35,13 @@ class addUserForm extends createForm {
         $query="SELECT * FROM osoba WHERE ident='$user'";
         $res=$db->getRes($query);
         //funkcja sprawdza czy w bazie, w polach odpowiadających nazwom pól z formularza, znajdują się dane, jeśli tak to wstawia je do formularza.
+       
         if ($res) {
             $zm=mysql_fetch_array($res);
-            foreach ($this->input as $key=>$element) {
-                if($element['type']=='text')
-                    if(!empty($zm[$element['name']])) {
-                        $this->input[$key]['value']=stripslashes($zm[$element['name']]);
+            foreach ($this->elements as $key=>$element) {
+                if($element['mode']=='input')
+                    if(!empty($zm[$element[0]['name']])) {
+                        $this->elements[$key][0]['value']=stripslashes($zm[$element[0]['name']]);
                     }
             }
         }else echo 'Nie ma takiego użytkownika';

@@ -7,15 +7,15 @@
  *
  * @author kama
  */
-define('e_alpha', 'Wyrażenie może zawierać tylko litery');
-define('e_alnum', 'Wyrażenie powinno zawierać litery i/lub cyfry');
-define('e_num', 'Wyrażenie powinno zawierać tylko cyfry');
-define('e_mail','Nieprawidłowy e-mail');
-define('e_date', 'Nieprawidłowy format daty');
-define('e_pcode','Nieprawidłowy kod pocztowy');
-define('e_pozw','Nieprawidłowy format pozwolenia');
-define('e_empty','Wypełnij wszystkie pola');
-define('e_dec','Nieodpowiedni format liczby');
+define('e_alpha', 'Wyrażenie może zawierać tylko litery<br>');
+define('e_alnum', 'Wyrażenie powinno zawierać litery i/lub cyfry<br>');
+define('e_num', 'Wyrażenie powinno zawierać tylko cyfry<br>');
+define('e_mail','Nieprawidłowy e-mail<br>');
+define('e_date', 'Nieprawidłowy format daty<br>');
+define('e_pcode','Nieprawidłowy kod pocztowy<br>');
+define('e_pozw','Nieprawidłowy format pozwolenia<br>');
+define('e_empty','Wypełnij wszystkie pola<br>');
+define('e_dec','Nieodpowiedni format liczby<br>');
 
 class validator {
     //put your code here

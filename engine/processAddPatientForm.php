@@ -7,7 +7,7 @@
  *
  * @author kama
  */
-require_once 'processAddUserForm.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/engine/processAddUserForm.php';
 class processAddPatientForm extends processAddUserForm {
     //put your code here
     private $olname,$ofname,$opesel,$plec,$krew;
@@ -53,4 +53,7 @@ class processAddPatientForm extends processAddUserForm {
         }
     }
 }
+$u=new processAddPatientForm();
+$u->validate();
+$u->addToDb();
 ?>

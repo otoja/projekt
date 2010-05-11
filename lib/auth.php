@@ -8,12 +8,12 @@
  * @author kama
  */
 require_once 'baseConfig.php';
-require_once '../mod/modelUser.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/mod/modelUser.php';
 session_start();
 class auth {
 //put your code here
-    
-    private $ident,$login,$pswd,$exist=0,$mode;
+   
+    private $ident,$login,$pswd,$exist=0,$mode,$fname;
     private $sAccessDenied = 'Autoryzacja wymagana.';
     private $sRealm = 'Brak dostępu.';
 
@@ -21,19 +21,21 @@ class auth {
         $this->ident=$ident;
         $this->login=$login;
         $this->pswd=$pswd;
-        $this->mode=0;
     }
 //sprawdzanie czy użytkownik jest w bazie
     private function checkDb() {
         $db=new baseConfig();
         $user=new modelUser();
         $this->mode=$user->getUserMode($this->ident);
+        
         $qry="SELECT * FROM osoba WHERE ident='$this->ident' AND mail='$this->login'";
         $res=mysql_fetch_array($db->getRes($qry));
         if ($res) {
-            if ($res['haslo']==md5($this->pswd)) {
+            if ($res['pswd']==md5($this->pswd)){
+                 $this->exist=1;
+                 $this->fname=$res['fname'];
             }
-            $this->exist=1;
+           
         }else $this->exist=0;
     }
 
@@ -47,6 +49,7 @@ class auth {
             $_SESSION['ident']=$this->ident;
             $_SESSION['pswd']=$this->pswd;
             $_SESSION['login']=$this->login;
+            $_SESSION['fname']=$this->fname;
             $_SESSION['mode']=$this->mode;
             $_SESSION['logedin']=true;
         }

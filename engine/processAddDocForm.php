@@ -7,12 +7,10 @@
  * 
  * @author kama
  */
-require_once 'processAddUserForm.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/engine/processAddUserForm.php';
 class processAddDocForm extends processAddUserForm {
     private $pozw, $spec,$godz,$gab,$date,$cash;
-    public function __construct() {
-        parent::__construct();
-    }
+
     //walidacja danych przy użyciu obiektu klasy validator
     public function validate() {
         parent::validate();
@@ -40,8 +38,7 @@ class processAddDocForm extends processAddUserForm {
 
         if (isset($_POST['cash']) && !empty ($_POST['cash'])) {
             if ($val->isDec($_POST['cash'])) $this->cash=$_POST['cash'];
-        }$val
-        ->exc(e_empty);
+        }else $val->exc(e_empty);
     }
 //dodanie użytkownika do bazy
     public function addToDb() {
@@ -56,10 +53,12 @@ class processAddDocForm extends processAddUserForm {
                 $db->getRes($qry2);
             }
         }catch (Exception $e) {
+            //echo 'dodawanie';
             echo $e->getMessage();
         }
     }
 }
-//$add=new processAddDocForm();
-//$add->addToDb();
+$add=new processAddDocForm();
+$add->validate();
+$add->addToDb();
 ?>

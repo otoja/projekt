@@ -34,16 +34,16 @@ abstract class createForm {
     }
 
     public function getHTML() {
-        $code= '<form action="'.$this->action.'" method="'.$this->method.'">';
+        $code= '<form id="form" action="'.$this->action.'" method="'.$this->method.'">';
 //        header('Content-Type: text/plain; charset=utf-8');
 //        print_r($this->elements);
 //        exit;
         foreach ($this->elements as $key=>$input) {
             if($input['mode']=='input') {
-                $code .= $this->elements[$key][0]['text'] .' <'.$input['mode'] .' name="'.$this->elements[$key][0]['name'] .'" type="'.$this->elements[$key][0]['type'].'" value="'.$this->elements[$key][0]['value'].'" maxlength="'.$this->elements[$key][0]['max'].'"'.$this->elements[$key][0]['extra'].'>';
+                $code .='<label for="'.$this->elements[$key][0]['name'] .'">'.$this->elements[$key][0]['text'] .' </label><'.$input['mode'] .' name="'.$this->elements[$key][0]['name'] .'" type="'.$this->elements[$key][0]['type'].'" value="'.$this->elements[$key][0]['value'].'" maxlength="'.$this->elements[$key][0]['max'].'"'.$this->elements[$key][0]['extra'].'>';
             }
             if($input['mode']=='select') {
-                $code.=' <'.$input['mode'].' name="'.$input['name'].' '.$input['extra'].'">';
+                $code.='<'.$input['mode'].' name="'.$input['name'].'" '.$input['extra'].'>';
                 $opt=$input['options'];
                 foreach ($opt as $key=>$option) {
                     $code.='<option value="'.$option['value'].'">'.$option['text'].'</option>';
@@ -51,8 +51,8 @@ abstract class createForm {
                 $code.= '</select>';
             }
             if ($input['mode']=='textarea'){
-                print_r($input);
-                $code.=$input['text'].'<'.$input['mode'].' name="'.$input['name'].'" rows="'.$input['rows'].'" cols="'.$input['cols'].'" '.$input['extra'].'></textarea>';
+                
+                $code.='<label for="'.$input['name'].'">'.$input['text'].'</label><'.$input['mode'].' name="'.$input['name'].'" rows="'.$input['rows'].'" cols="'.$input['cols'].'" '.$input['extra'].'></textarea>';
             }
         }
         return $code.'</form>';

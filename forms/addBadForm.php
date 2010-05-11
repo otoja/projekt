@@ -6,9 +6,9 @@
  *
  * @author kama
  */
-include 'createForm.php';
-include '../mod/modelUser.php';
-require_once '../lib/baseConfig.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/createForm.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/mod/modelUser.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
 class dodBadForm extends createForm {
     //put your code here
     public function __construct($action, $method) {
@@ -22,13 +22,13 @@ class dodBadForm extends createForm {
             $this->addInput($arr['nz'], 'text', '', $arr['nz'], '7', 'size=7');
         }
         $this->addInput('reset', 'reset', 'reset', '<br>','','');
-        $this->addInput('wyslij', 'submit', 'wyslij', '','','');
+        $this->addInput('wyslijbad', 'submit', 'Wyslij', '','','');
     }
 
     public function display() {
         echo $this->getHTML();
     }
 }
-$f=new dodBadForm('../engine/processAddBadForm.php', 'post');
+$f=new dodBadForm('../mod/modEpr.php', 'post');
 $f->display();
 ?>

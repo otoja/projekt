@@ -7,8 +7,8 @@
  *
  * @author kama
  */
-require_once '../lib/auth.php';
-require_once '../lib/validator.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/auth.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/validator.php';
 
 class processLoginForm {
     //put your code here
@@ -16,10 +16,16 @@ class processLoginForm {
 
     public function __construct() {
         $this->validate();
-        if(!$this->error) {
+        //if(!$this->error) {
             $auth=new auth($this->ident, $this->login, $this->pswd);
-            if( $auth->checkIfExist()) $auth->login();
-        }
+            if( $auth->checkIfExist()){
+                $auth->login();
+
+                echo 'correct';
+                header('Location: ../index.php');
+            }
+            else echo 'error';
+        //}
     }
 
     private function validate() {
@@ -44,6 +50,12 @@ class processLoginForm {
         }
     }
 }
-$add=new processLoginForm();
+if (isset($_GET['mode']) && $_GET['mode']=='logout' && isset($_SESSION['logedin'])){
+    $auth=new auth($_SESSION['ident'], $_SESSION['login'], $_SESSION['pswd']);
+    $auth->logout();
+    echo 'loggedout';
+    header('Location: ../index.php');
+}
+else  $add=new processLoginForm();
 
 ?>

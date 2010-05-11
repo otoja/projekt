@@ -7,9 +7,9 @@
  * @author kama
  */
 
-require_once '../lib/validator.php';
-require_once '../lib/baseConfig.php';
-require_once '../mod/modelUser.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/validator.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/mod/modelUser.php';
 class processAddBadForm {
     private $bad=array();
 
@@ -18,13 +18,14 @@ class processAddBadForm {
 //        print_r($_POST);
 //        echo "<br><br>";
         $this->validate();
-        $this->addToDb();
+        //$this->addToDb();
     }
     public function validate() {
         $val=new validator();
         $db=new baseConfig();
         if ($_SERVER['REQUEST_METHOD']=='POST') {
             $query="Select * FROM badanie";
+
             $res=$db->getRes($query);
             while($arr=mysql_fetch_array($res)) {
                 $zm=str_replace(' ','_', $arr['nz']);

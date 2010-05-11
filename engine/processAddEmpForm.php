@@ -7,10 +7,11 @@
  *
  * @author kama
  */
-require_once 'processAddUserForm.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/engine/processAddUserForm.php';
 class processAddEmpForm extends processAddUserForm {
     protected $date,$stan,$cash;
 //walidacja formularza
+
     public function validate() {
         parent::validate();
         $val=new validator();
@@ -29,9 +30,9 @@ class processAddEmpForm extends processAddUserForm {
 
         if (isset($_POST['cash']) && !empty ($_POST['cash'])) {
             if ($val->isDec($_POST['cash'])) $this->cash=$_POST['cash'];
-        } $val
+        }else $val->exc(e_empty);
 
-                ->exc(e_empty);
+                
     }
 //dodawanie do tab pracownik
     public function addToDb() {
@@ -58,6 +59,7 @@ class processAddEmpForm extends processAddUserForm {
     }
 }
 
-//$add=new processAddEmpForm();
-//$add->addToDb();
+$add=new processAddEmpForm();
+$add->validate();
+$add->addToDb();
 ?>

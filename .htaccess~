@@ -1,4 +1,4 @@
-RewriteEngine off
+RewriteEngine on
 
 RewriteCond %{remote_user} !^$ [nc]
 RewriteRule ^(.*)$ /users/%{remote_user}/$1
