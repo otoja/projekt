@@ -10,6 +10,7 @@
 require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/addPatientForm.php';
 require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/addEmpForm.php';
 require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/addDocForm.php';
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/addUrlopForm.php';
 //require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/engine/processAddEmpForm.php';
 //require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/engine/processAddPatientForm.php';
 //require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/engine/processAddDocForm.php';
@@ -22,7 +23,7 @@ class modelUser {
     public function addUser($mode) {
         switch($mode) {
             case 'pacjent': {
-                    $form=new addPatientForm('../engine/processAddPatientForm.php', 'post');
+                    $form=new addPatientForm('./engine/processAddPatientForm.php', 'post');
                     $form->display();
                 }break;
             case 'pracownik': {
@@ -122,6 +123,12 @@ class modelUser {
 
         $res=$db->getRes($query);
         return mysql_fetch_array($res);
+    }
+    public function setUrlop($ident){
+        $user=$this->getUserMode($ident);
+        if ($user!='pacjent'){
+
+        }
     }
 
 

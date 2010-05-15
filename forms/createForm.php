@@ -34,13 +34,13 @@ abstract class createForm {
     }
 
     public function getHTML() {
-        $code= '<form id="form" action="'.$this->action.'" method="'.$this->method.'">';
+        $code= '<form id="form" action="'.$this->action.'" method="'.$this->method.'"><fieldset>';
 //        header('Content-Type: text/plain; charset=utf-8');
 //        print_r($this->elements);
 //        exit;
         foreach ($this->elements as $key=>$input) {
             if($input['mode']=='input') {
-                $code .='<label for="'.$this->elements[$key][0]['name'] .'">'.$this->elements[$key][0]['text'] .' </label><'.$input['mode'] .' name="'.$this->elements[$key][0]['name'] .'" type="'.$this->elements[$key][0]['type'].'" value="'.$this->elements[$key][0]['value'].'" maxlength="'.$this->elements[$key][0]['max'].'"'.$this->elements[$key][0]['extra'].'>';
+                $code .='<div id="input"><label for="'.$this->elements[$key][0]['name'] .'">'.$this->elements[$key][0]['text'] .'</label><'.$input['mode'] .' name="'.$this->elements[$key][0]['name'] .'" type="'.$this->elements[$key][0]['type'].'" value="'.$this->elements[$key][0]['value'].'" maxlength="'.$this->elements[$key][0]['max'].'"'.$this->elements[$key][0]['extra'].'></div>';
             }
             if($input['mode']=='select') {
                 $code.='<'.$input['mode'].' name="'.$input['name'].'" '.$input['extra'].'>';
@@ -52,10 +52,10 @@ abstract class createForm {
             }
             if ($input['mode']=='textarea'){
                 
-                $code.='<label for="'.$input['name'].'">'.$input['text'].'</label><'.$input['mode'].' name="'.$input['name'].'" rows="'.$input['rows'].'" cols="'.$input['cols'].'" '.$input['extra'].'></textarea>';
+                $code.='<div id="textarea"><label for="'.$input['name'].'">'.$input['text'].'</label><'.$input['mode'].' name="'.$input['name'].'" rows="'.$input['rows'].'" cols="'.$input['cols'].'" '.$input['extra'].'></textarea></div>';
             }
         }
-        return $code.'</form>';
+        return $code.'</fieldset></form>';
     }
 }
 ?>

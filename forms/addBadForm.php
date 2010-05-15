@@ -21,7 +21,7 @@ class dodBadForm extends createForm {
         while($arr=mysql_fetch_array($res)) {
             $this->addInput($arr['nz'], 'text', '', $arr['nz'], '7', 'size=7');
         }
-        $this->addInput('reset', 'reset', 'reset', '<br>','','');
+        $this->addInput('reset', 'reset', 'reset', '','','');
         $this->addInput('wyslijbad', 'submit', 'Wyslij', '','','');
     }
 

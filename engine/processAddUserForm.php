@@ -8,7 +8,7 @@
  * @author kama
  */
 
-
+require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/phpmailer/mailConfig.php';
 require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
 require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/validator.php';
 class processAddUserForm {
@@ -106,6 +106,8 @@ class processAddUserForm {
                             . " '$this->street','$this->nr_d','$this->nr_m','$this->city','$this->kod','$this->country','$this->tel','$this->pesel','$this->nip','$this->mail','$this->pswd','','')";
                     $r=$db->getRes($query);
                     $this->last_id=$db->getLastId();
+                    $msg='Zostalo utworzone konto o identyfikatorze '.$this->id.'. Prosimy zgłosić, się do przychodni celem weryfikacji danych oraz pelnej aktywacji konta.';
+                    $mail=new mailConfig($this->mail,'Witamy w E-przychodni!',$msg);
                 }
             } catch (Exception $e) {
                 echo '<font color="red">'.$e->getMessage().'</font><br>';

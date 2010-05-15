@@ -23,6 +23,7 @@ class  baseConfig {
     private function connect() {
         $this->link=mysql_connect($this->host, $this->user,$this->pswd) or die(mysql_error());
         mysql_select_db($this->db, $this->link) or die(mysql_error());
+        mysql_set_charset('utf8');
     }
     //wykonanie zapytania
     private function query($query) {

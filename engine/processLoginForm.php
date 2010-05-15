@@ -1,3 +1,4 @@
+
 <?php
 
 /**
@@ -17,14 +18,14 @@ class processLoginForm {
     public function __construct() {
         $this->validate();
         //if(!$this->error) {
-            $auth=new auth($this->ident, $this->login, $this->pswd);
-            if( $auth->checkIfExist()){
-                $auth->login();
+        $auth=new auth($this->ident, $this->login, $this->pswd);
+        if( $auth->checkIfExist()) {
+            $auth->login();
 
-                echo 'correct';
-                header('Location: ../index.php');
-            }
-            else echo 'error';
+            echo 'correct';
+            header('Location: ../index.php');
+        }
+
         //}
     }
 
@@ -50,11 +51,17 @@ class processLoginForm {
         }
     }
 }
-if (isset($_GET['mode']) && $_GET['mode']=='logout' && isset($_SESSION['logedin'])){
+if (isset($_GET['mode']) && $_GET['mode']=='logout' && isset($_SESSION['logedin'])) {
     $auth=new auth($_SESSION['ident'], $_SESSION['login'], $_SESSION['pswd']);
     $auth->logout();
-    echo 'loggedout';
-    header('Location: ../index.php');
+    ?>
+<script type="text/javascript">
+    window.location.reload(true);
+</script>
+    <?
+    //echo 'Jesteś wylogowany';
+    //header('location: ../index.php');
+
 }
 else  $add=new processLoginForm();
 
