@@ -43,7 +43,8 @@ class processAddDocForm extends processAddUserForm {
 //dodanie użytkownika do bazy
     public function addToDb() {
         parent::addToDb();
-        $qry="INSERT INTO lekarz VALUES('', '$this->last_id','$this->pozw','$this->gab','$this->spec','$this->date','$this->cash','')";
+        if (isset($_GET['update']))$qry="UPDATE lekarz SET pozw='$this->pozw',gab='$this->gab',spec='$this->spec',date='$this->date',cash='$this->cash',''";
+        else $qry="INSERT INTO lekarz VALUES('', '$this->last_id','$this->pozw','$this->gab','$this->spec','$this->date','$this->cash','')";
         $db=new baseConfig();
         $id=$this->last_id;
         $qry2="UPDATE osoba SET mode=1 WHERE osoba.id_osoba='$id'";//aktualizacja roli w systemie
@@ -61,4 +62,5 @@ class processAddDocForm extends processAddUserForm {
 $add=new processAddDocForm();
 $add->validate();
 $add->addToDb();
+header('Location: ../index.php');
 ?>

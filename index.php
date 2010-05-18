@@ -17,7 +17,7 @@ require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/auth.php';
             <div id="top" onclick="javascript:location.reload(true)">
             </div>
             <div id="nav" >
-                <?
+                    <?
                     include $GLOBALS['DOCUMENT_ROOT'].'/Final/menu/top.php';
                     ?>            
             </div>
@@ -33,7 +33,7 @@ require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/auth.php';
                     else echo 'nie jestes zalogowany';
                     ?>
                 </div>
-                 <div style=" width: 200px; float: left"></div>
+                 <div style=" width: 200px; float: left;"></div>
             </div>
             <div id="bottom">Created by Kama</div>
         </div>

@@ -21,6 +21,10 @@
     padding-top: 5px;
     overflow: hidden;
 }
+.button{
+    float: left;
+    padding: 2px;
+}
 #center{
     overflow: hidden;
     
@@ -64,15 +68,16 @@ label{
     /*padding-top: 20px;*/
     width: 200px;
     overflow: hidden;
+    margin-left: -40px
 }
 #left li{
-
-    height: 30px;
+    min-height: 30px;
+    height: auto;
     text-align: center;
     background-image: url(../img/grad.jpg);
     background-repeat:repeat-x;
     list-style: none;
-    /*padding-top: 4px;*/
+    padding: 1px;
     margin-bottom: 1px;
     background-position: center center;
     vertical-align: middle;
@@ -92,7 +97,9 @@ label{
 #left ul ul a{
  font-weight: normal;
 }
-
+#left ul ul{
+    margin-left: -40px;
+}
 
 li, #nav li{
     list-style: none;

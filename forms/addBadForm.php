@@ -9,7 +9,7 @@
 require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/createForm.php';
 require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/mod/modelUser.php';
 require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
-class dodBadForm extends createForm {
+class addBadForm extends createForm {
     //put your code here
     public function __construct($action, $method) {
         parent::__construct($action, $method);
@@ -29,6 +29,6 @@ class dodBadForm extends createForm {
         echo $this->getHTML();
     }
 }
-$f=new dodBadForm('../mod/modEpr.php', 'post');
+$f=new addBadForm('../mod/modEpr.php', 'post');
 $f->display();
 ?>

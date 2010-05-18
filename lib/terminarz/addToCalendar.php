@@ -13,13 +13,14 @@
 require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/auth.php';
 require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
 require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/phpmailer/mailConfig.php';
+
 if (isset($_GET['st'])) $st=$_GET['st'];
 if (isset($_GET['date'])) $date=$_GET['date'];
 if(isset($_GET['id']))$id=$_GET['id'];
 if(isset($_GET['msg']))$msg=$_GET['msg'];
 $ident=$_SESSION['ident'];
 $db= new baseConfig();
-$qry="INSERT INTO umowione_wizyty VALUES('','$date','$ident','$id','$st')";
+$qry="INSERT INTO umowione_wizyty VALUES('','$date','$ident','$id','$st','','')";
 $res=$db->getRes($qry);
 if ($res) {
     $user=new modelUser();

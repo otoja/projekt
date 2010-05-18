@@ -80,7 +80,7 @@ class processAddUserForm {
             $this->error=1;
         }
     }
-  //generowanie unikalnego identyfikatora na podstawie imienia, nazwiska, peselu i losowo generowanej liczby
+    //generowanie unikalnego identyfikatora na podstawie imienia, nazwiska, peselu i losowo generowanej liczby
     private function genId() {
         $id=substr($this->fname, 0, 3);
         $id.=substr($this->lname, 0, 3);
@@ -97,22 +97,29 @@ class processAddUserForm {
             $db=new baseConfig();
             $qr="SELECT COUNT(*) as cnt\n"
                     . "FROM osoba \n"
-                    . "WHERE pesel='$this->pesel'";
+                    . "WHERE pesel='$this->pesel' OR nip='$this->nip'";
             try {
-                $res=mysql_fetch_array($db->getRes($qr));
-                if ($res['cnt']>0) throw new Exception('User already in db');
+                if (isset($_GET['update'])) $query="UPDATE osoba SET (fname='$this->fname',lname='$this->lname',\n"
+                            . " street='$this->street',nr_d='$this->nr_d',nr_m='$this->nr_m',city='$this->city',kod='$this->kod',country='$this->country',tel='$this->tel',pesel='$this->pesel',nip='$this->nip',mail='$this->mail',pswd='$this->pswd',aktyw=1,'')";
                 else {
-                    $query="INSERT INTO osoba VALUES ('','$this->id','$this->fname','$this->lname',\n"
-                            . " '$this->street','$this->nr_d','$this->nr_m','$this->city','$this->kod','$this->country','$this->tel','$this->pesel','$this->nip','$this->mail','$this->pswd','','')";
-                    $r=$db->getRes($query);
-                    $this->last_id=$db->getLastId();
-                    $msg='Zostalo utworzone konto o identyfikatorze '.$this->id.'. Prosimy zgłosić, się do przychodni celem weryfikacji danych oraz pelnej aktywacji konta.';
-                    $mail=new mailConfig($this->mail,'Witamy w E-przychodni!',$msg);
+                    $res=mysql_fetch_array($db->getRes($qr));
+                    if ($res['cnt']>0) throw new Exception('User already in db');
+                    else {
+                        $query="INSERT INTO osoba VALUES ('','$this->id','$this->fname','$this->lname',\n"
+                                . " '$this->street','$this->nr_d','$this->nr_m','$this->city','$this->kod','$this->country','$this->tel','$this->pesel','$this->nip','$this->mail','$this->pswd','','')";
+                        $r=$db->getRes($query);
+                        $this->last_id=$db->getLastId();
+                        $msg='Zostalo utworzone konto o identyfikatorze '.$this->id.'. Prosimy zgłosić, się do przychodni celem weryfikacji danych oraz pelnej aktywacji konta.';
+                        $mail=new mailConfig($this->mail,'Witamy w E-przychodni!',$msg);
+                    }
                 }
             } catch (Exception $e) {
                 echo '<font color="red">'.$e->getMessage().'</font><br>';
                 $this->error=1;
+
             }
+
+
         }
     }
 

@@ -62,4 +62,5 @@ class processAddEmpForm extends processAddUserForm {
 $add=new processAddEmpForm();
 $add->validate();
 $add->addToDb();
+//header('Location: ../index.php');
 ?>

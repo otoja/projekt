@@ -43,7 +43,8 @@ class processAddPatientForm extends processAddUserForm {
 //dodawanie do tab pacjent
     public function addToDb() {
         parent::addToDb();
-        $qry="INSERT INTO pacjent VALUES('','$this->last_id','$this->ofname','$this->olname','$this->opesel','$this->krew','$this->plec')";
+        if (isset ($_GET['update'])) $qry="UPDATE pacjent SET ofname='$this->ofname',olname='$this->olname',opesel='$this->opesel',gr_krwi='$this->krew',plec='$this->plec' WHERE id_osoba='$this->last_id'";
+        else $qry="INSERT INTO pacjent VALUES('','$this->last_id','$this->ofname','$this->olname','$this->opesel','$this->krew','$this->plec')";
         $id=$this->last_id;
         $qry2="UPDATE osoba SET mode=2 WHERE osoba.id_osoba='$id'";//update roli użytkownika w systemie
         $db=new baseConfig();
@@ -56,4 +57,5 @@ class processAddPatientForm extends processAddUserForm {
 $u=new processAddPatientForm();
 $u->validate();
 $u->addToDb();
+header('Location: ../index.php');
 ?>

@@ -21,13 +21,12 @@ $count='SELECT count(*) FROM lekarz';
 $count=$db->getRes($count);
 $count=mysql_fetch_row($count);
 $res=$db->getRes($qry);
-$lekarz=mysql_fetch_assoc($res);
 
 echo "<p>Wybierz lekarza, którego terminarz chcesz przejrzeć:</p>
     <br><table id='lekarz'><tr><td>Imię</td><td>Nazwisko</td><td>Specjalizacja</td><td>Gabinet</td><td></td></tr>";
 if ($count[0]>1) {
-    foreach ($lekarz as $lek) {
-        echo "<tr><td>".$lek['fname']."</td><td>".$lek['lname']."</td><td>".$lek['spec']."</td><td>".$lek['gab']."</td><td><input type='button' value='Wybierz' onclick='javascript:getData(\'./lib/terminarz/showCalendar.php?id=".$lek['id_lekarz']."\',\'cont\')'></td></tr>";
+    while ($lek=mysql_fetch_assoc($res)) {
+        echo '<tr><td>'.$lek['fname'].'</td><td>'.$lek['lname'].'</td><td>'.$lek['spec'].'</td><td>'.$lek['gab'].'</td><td><input type="button" value="Wybierz" onclick="javascript:getData(\'./lib/terminarz/showCalendar.php?id='.$lek['id_lekarz'].'\',\'cont\')"></td></tr>';
     }
     echo '</table>';
 }else
