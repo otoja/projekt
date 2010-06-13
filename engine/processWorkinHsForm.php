@@ -6,8 +6,8 @@
  * @author kama
  */
 //stamp 30
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/validator.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/validator.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/baseConfig.php';
 class processWorkinHsForm{
     private $start_pn, $stop_pn, $start_wt, $stop_wt, $start_sr, $stop_sr, $start_czw, $stop_czw, $start_pt, $stop_pt,$min=16, $max=40;
     public function validate(){

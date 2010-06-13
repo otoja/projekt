@@ -15,11 +15,11 @@
  * jesli godzina jest na liscie wizyt wybranego dnia- kolor busy
  */
 
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/terminarz/dateOperation.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/terminarz/calendarStyle.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/terminarz/checkHours.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/auth.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/baseConfig.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/terminarz/dateOperation.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/terminarz/calendarStyle.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/terminarz/checkHours.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/auth.php';
 $db=new baseConfig();
 $dat=new dateOperation();
 $calendar=new calendarStyle();

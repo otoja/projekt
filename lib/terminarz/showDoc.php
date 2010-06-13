@@ -10,9 +10,9 @@
  *
  * @author kama
  */
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/createForm.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/mod/modelUser.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/forms/createForm.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/baseConfig.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/mod/modelUser.php';
 
 
 $db=new baseConfig();

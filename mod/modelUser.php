@@ -8,12 +8,12 @@
  *
  * @author kama
  */
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/addPatientForm.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/addEmpForm.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/addDocForm.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/addUrlopForm.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/auth.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/forms/addPatientForm.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/forms/addEmpForm.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/forms/addDocForm.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/forms/addUrlopForm.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/baseConfig.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/auth.php';
 
 class modelUser {
 

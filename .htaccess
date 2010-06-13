@@ -1,5 +1,1 @@
-RewriteEngine off
-
-RewriteCond %{remote_user} !^$ [nc]
-RewriteRule ^(.*)$ /users/%{remote_user}/$1
 php_flag register_globals on

@@ -7,7 +7,7 @@
  * 
  * @author kama
  */
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/engine/processAddUserForm.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/engine/processAddUserForm.php';
 class processAddDocForm extends processAddUserForm {
     private $pozw, $spec,$godz,$gab,$date,$cash;
 

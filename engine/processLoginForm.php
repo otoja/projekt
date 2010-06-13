@@ -8,8 +8,8 @@
  *
  * @author kama
  */
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/auth.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/validator.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/auth.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/validator.php';
 
 class processLoginForm {
     //put your code here
@@ -24,7 +24,7 @@ class processLoginForm {
 
             echo 'correct';
             header('Location: ../index.php');
-        }
+        }else echo 'error';
 
         //}
     }

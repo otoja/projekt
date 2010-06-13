@@ -27,11 +27,11 @@
 }
 #center{
     overflow: hidden;
-    
+
 }
 #cont{
     float:right;
-  /*  background-color: #cde3e7;*/
+    /*  background-color: #cde3e7;*/
     margin-left: 5px;
 
     width: 590px;
@@ -39,10 +39,20 @@
 }
 #content{
     width: 800px;
-  /*  margin-right: 20%;
-    margin-left: 20%;*/
-  margin: 0 auto;
+    /*  margin-right: 20%;
+      margin-left: 20%;*/
+    margin: 0 auto;
     overflow: hidden;
+}
+.epr{
+   background-color: green;
+   margin-top: 15px;
+}
+.epr td{
+    min-width: 250px;
+}
+.epr tr{
+    background-color: silver;
 }
 fieldset {
     margin: 0;
@@ -59,6 +69,7 @@ fieldset select{
 label{
     display: -moz-inline-box;
     display: inline-block;
+    text-align: center;
     width: 150px;
 }
 #left{
@@ -74,7 +85,7 @@ label{
     min-height: 30px;
     height: auto;
     text-align: center;
-    background-image: url(../img/grad.jpg);
+    background-image: url(../img/buttonpion.jpg);
     background-repeat:repeat-x;
     list-style: none;
     padding: 1px;
@@ -95,7 +106,7 @@ label{
     font-size: 14px;
 }
 #left ul ul a{
- font-weight: normal;
+    font-weight: normal;
 }
 #left ul ul{
     margin-left: -40px;
@@ -116,12 +127,12 @@ li, #nav li{
     opacity: 0.7;
 }
 #nav{
-       overflow: hidden;
+    overflow: hidden;
 }
 #nav li{
     width: auto;
     padding: 5px;
-    background-image: url(../img/grad.jpg);
+    background-image: url(../img/buttonpion.jpg);
     background-repeat: repeat-x;
     float: right;
     margin-left: 1px;
@@ -135,7 +146,7 @@ li, #nav li{
     font-weight: bolder;
     text-align: center;
     vertical-align: middle;
-    
+
 }
 table td{
     font-size: 12px;
@@ -145,7 +156,7 @@ table#calendar tbody td:hover{
     opacity: 0.6;
 }
 table tbody td{
- /*   overflow: hidden;*/
+    /*   overflow: hidden;*/
     border-top-style: solid;
     border-top-width: 1px;
     border-top-color: silver;     
@@ -157,7 +168,7 @@ table{
 
 #top{
     height: 120px;
-    background-image: url(../img/baner1.jpg);
+    background-image: url(../img/bannerznapisem.jpg);
     opacity: 0.8;
     -webkit-box-shadow: 5px 5px 8px #818181;
     -moz-box-shadow: 5px 5px 8px #818181;
@@ -165,7 +176,7 @@ table{
     -moz-border-radius-bottomright: 40px;
     -webkit-border-top-left-radius: 40px;
     -webkit-border-bottom-right-radius: 40px;
-     -moz-border-radius-topright: 3px;
+    -moz-border-radius-topright: 3px;
     -moz-border-radius-bottoleft: 3px;
     -webkit-border-top-right-radius: 3px;
     -webkit-border-bottom-left-radius: 3px;

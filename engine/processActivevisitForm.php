@@ -5,8 +5,8 @@
  *
  * @author kama
  */
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/validator.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/validator.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/baseConfig.php';
 $val=new validator();
 $wiz=$_GET['wiz'];
 $pident=$_GET['id'];

@@ -8,9 +8,9 @@
  * @author kama
  */
 
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/phpmailer/mailConfig.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/validator.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/phpmailer/mailConfig.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/baseConfig.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/validator.php';
 class processAddUserForm {
     protected $query, $fname,$lname,$street,$nr_d,$nr_m, $kod,$city,$country,$tel,$pesel,$nip,$mail,$pswd,$id,$last_id,$error=0;
     //walidacja formularza

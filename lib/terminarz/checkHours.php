@@ -5,8 +5,8 @@
  *
  * @author kama
  */
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/auth.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/baseConfig.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/auth.php';
 class checkHours {
     public function getWorkinHours() {
         $qry="SELECT * FROM godziny_pracy";

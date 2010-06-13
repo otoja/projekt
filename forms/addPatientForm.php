@@ -7,7 +7,7 @@
  *
  * @author kama
  */
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/addUserForm.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/forms/addUserForm.php';
 class addPatientForm extends addUserForm {
     //put your code here
     public function __construct($action, $method) {
@@ -23,15 +23,7 @@ class addPatientForm extends addUserForm {
         $plec[]=array('value'=>'k', 'text'=>'Kobieta');
         $plec[]=array('value'=>'m', 'text'=>'Mężczyzna');
         $this->addSelect('plec', $plec, '');
-//        $this->addInput('krew', 'radio', 'ab', '<br>AB','','');
-//        $this->addInput('krew', 'radio', 'a', 'A','','');
-//        $this->addInput('krew', 'radio', 'b', 'B','','');
-//        $this->addInput('krew', 'radio', 'z', '0','','');
-//        $this->addInput('rh', 'radio', '-', '<br>-','','');
-//        $this->addInput('rh', 'radio', '+', '+','','');
-//        $this->addInput('plec', 'radio', 'k', '<br>Kobieta','','');
-//        $this->addInput('plec', 'radio', 'm', 'Mężczyzna','','');
-         $this->addInput('ofname', 'text','','Imię opiekuna',20,'');
+        $this->addInput('ofname', 'text','','Imię opiekuna',20,'');
         $this->addInput('olname', 'text','','Nazwisko opiekuna',20,'');
         $this->addInput('opesel', 'text','','Pesel opiekuna',11,'');
         $this->addInput('wyslij', 'submit', 'wyslij', '<br>','','');
@@ -44,12 +36,12 @@ class addPatientForm extends addUserForm {
     public function editForm($user) {
         parent::editForm($user);
         $db=new baseConfig();
-       
+
         $sql = "SELECT * \n"
                 . "FROM pacjent,osoba \n"
                 . "WHERE osoba.ident='$user' AND osoba.id_osoba=pacjent.id_osoba";
         $res=$db->getRes($sql);
-        
+
         if ($res) {
             $zm= mysql_fetch_array($res);
             foreach ($this->elements as $key=>$element) {

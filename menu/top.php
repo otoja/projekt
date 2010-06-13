@@ -5,7 +5,7 @@
  *
  * @author kama
  */
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/auth.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/auth.php';
 
 echo '<ul>';
 if (isset($_SESSION['logedin']) && $_SESSION['logedin']) echo '<li><a href="javascript:getData(\'./engine/processLoginForm.php?mode=logout\',\'cont\')"  onclick="javascript:location.reload(true)">Wyloguj</a></li>';

@@ -17,7 +17,7 @@ class createTestLoginForm extends PHPUnit_Extensions_SeleniumTestCase
 
     public function testLoginFormExists()
     {
-        $this->open('http://localhost/Final/forms/loginForm.php');
+        $this->open('http://localhost/e-Przychodnia/forms/loginForm.php');
 
         $this->assertElementPresent("id=form");
         $this->assertElementPresent("dom=document.forms['form'].ident");
@@ -28,7 +28,7 @@ class createTestLoginForm extends PHPUnit_Extensions_SeleniumTestCase
 
     public function testValidAuthentication()
     {
-        $this->open('http://localhost/Final/forms/loginForm.php');
+        $this->open('http://localhost/e-Przychodnia/forms/loginForm.php');
 
         // Fill out the form!
         $this->type("dom=document.forms['form'].ident", 'kamprz776178660');

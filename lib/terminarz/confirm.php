@@ -4,8 +4,8 @@
     </head>
 </html>
 <?php
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/auth.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/auth.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/baseConfig.php';
 /**
  * Description of makeVisit
  *

@@ -6,15 +6,15 @@
  *
  * @author kama
  */
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/createForm.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/mod/modelUser.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/forms/createForm.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/mod/modelUser.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/baseConfig.php';
 class addBadForm extends createForm {
     //put your code here
     public function __construct($action, $method) {
         parent::__construct($action, $method);
-        $id=$_GET['ident'];   
-        $this->addInput('ident', 'text', $id, 'Identyfikator pacjenta', '20','DISABLED');
+        $id=$_GET['wiz'];
+        $this->addInput('wiz', 'hidden', $id, '', '', '');
         $db=new baseConfig();
         $query="Select * FROM badanie";
         $res=$db->getRes($query);
@@ -29,6 +29,6 @@ class addBadForm extends createForm {
         echo $this->getHTML();
     }
 }
-$f=new addBadForm('../mod/modEpr.php', 'post');
+$f=new addBadForm('../engine/processAddBadForm.php', 'post');
 $f->display();
 ?>

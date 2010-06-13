@@ -5,7 +5,7 @@
  *
  * @author kama
  */
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/createForm.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/forms/createForm.php';
 class workinHsForm extends createForm{
     public function __construct($action, $method) {
         parent::__construct($action, $method);

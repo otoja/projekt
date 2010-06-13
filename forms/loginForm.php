@@ -8,7 +8,7 @@
  *
  * @author kama
  */
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/forms/createForm.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/forms/createForm.php';
 class loginForm extends createForm {
     //put your code here
     public function __construct($action, $method) {
@@ -22,6 +22,6 @@ class loginForm extends createForm {
         echo $this->getHTML();
     }
 }
-$log=new loginForm('../Final/engine/processLoginForm.php', 'post');
+$log=new loginForm('../e-Przychodnia/engine/processLoginForm.php', 'post');
 $log->display();
 ?>

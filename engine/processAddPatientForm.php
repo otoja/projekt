@@ -7,7 +7,7 @@
  *
  * @author kama
  */
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/engine/processAddUserForm.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/engine/processAddUserForm.php';
 class processAddPatientForm extends processAddUserForm {
     //put your code here
     private $olname,$ofname,$opesel,$plec,$krew;
@@ -51,7 +51,9 @@ class processAddPatientForm extends processAddUserForm {
         if(!$this->error){
             $db->getRes($qry);
             $db->getRes($qry2);
+            echo "Nowy użytkownik został zarejestrowany";
         }
+        
     }
 }
 $u=new processAddPatientForm();

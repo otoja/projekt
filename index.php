@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <?
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/auth.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/auth.php';
 ?>
 <html>
     <head>
@@ -18,13 +18,13 @@ require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/auth.php';
             </div>
             <div id="nav" >
                     <?
-                    include $GLOBALS['DOCUMENT_ROOT'].'/Final/menu/top.php';
+                    include $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/menu/top.php';
                     ?>            
             </div>
             <div id="center">
                 <div id="left" >
                     <?
-                    include_once $GLOBALS['DOCUMENT_ROOT'].'/Final/menu/side.php';
+                    include_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/menu/side.php';
                     ?>
                 </div>
                 <div id="cont">

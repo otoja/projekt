@@ -5,7 +5,7 @@
  *
  * @author kama
  */
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/phpmailer/class.phpmailer.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/phpmailer/class.phpmailer.php';
 
 class mailConfig {
     public function __construct($to,$subject,$msg) {

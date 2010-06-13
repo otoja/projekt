@@ -1,29 +1,29 @@
 <?php
 
-
 /**
  * Description of processAddBadForm
  *
  * @author kama
  */
 
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/validator.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/lib/baseConfig.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/mod/modelUser.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/validator.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/lib/baseConfig.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/mod/modelUser.php';
 class processAddBadForm {
     private $bad=array();
+    private $wiz;
 
     public function __construct() {
-//        header('Content-Type: text/plain; charset=utf-8');
-//        print_r($_POST);
-//        echo "<br><br>";
         $this->validate();
-        //$this->addToDb();
+        $this->addToDb();
     }
     public function validate() {
         $val=new validator();
         $db=new baseConfig();
         if ($_SERVER['REQUEST_METHOD']=='POST') {
+            if (isset($_POST['wiz'])) {
+                $this->wiz=$_POST['wiz'];
+            }
             $query="Select * FROM badanie";
 
             $res=$db->getRes($query);
@@ -39,17 +39,24 @@ class processAddBadForm {
     public function addToDb() {
         $query="INSERT INTO lista_badan VALUES('',";
         $user=new modelUser();
-        $pacjent=$user->getUserData($_POST['ident']);
-        $lekarz=$user->getUserData($_SESSION['ident']);
-        $query.="'".$pacjent['id_pacjent']."','".$lekarz['id_lekarz']."'";
+        $query.="'$this->wiz'";
         foreach ($this->bad as $b) {
             $query.=",'".$b['value']."'";
         }
-        echo count($this->bad);
-        $query.=",'');";
+        $query.=",NOW())";
         $db=new baseConfig();
         $db->getRes($query);
+        $id_bad=$db->getLastId();
+        $qry="SELECT * FROM EPR WHERE id_wizyta=$this->wiz";
+        $res=$db->getRes($qry);
+        $res=mysql_num_rows($res);
+        if ($res==0) {
+            $qry="INSERT INTO EPR VALUES('','','$this->wiz','','','',NOW(),'1')";
+        }
+        else $qry="UPDATE EPR SET id_badanie=1 WHERE id_wizyta=$this->wiz";
+        $db->getRes($qry);
     }
 }
 $f=new processAddBadForm();
+
 ?>

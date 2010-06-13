@@ -8,7 +8,7 @@
  * @author kama
  */
 require_once 'baseConfig.php';
-require_once $GLOBALS['DOCUMENT_ROOT'].'/Final/mod/modelUser.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/e-Przychodnia/mod/modelUser.php';
 session_start();
 class auth {
 //put your code here
