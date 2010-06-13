@@ -67,13 +67,15 @@ class processAddUserForm {
                     if($val->isEmail($_POST['mail'])) $this->mail=$_POST['mail'];
                 }else $val->exc(e_empty);
 
-                if (isset($_POST['pswd']) && !empty($_POST['pswd'])) {
-                    if($val->isAlnum($_POST['pswd']) && $val->isAlnum($_POST['rpswd'])) {
-                        $ps=$_POST['pswd'];
-                        $rps=$_POST['rpswd'];
-                        if(md5($ps)===md5($rps)) $this->pswd=md5($ps);
-                    }
-                }else $val->exc(e_empty);
+                if (!isset($_GET['update'])) {
+                    if (isset($_POST['pswd']) && !empty($_POST['pswd'])) {
+                        if($val->isAlnum($_POST['pswd']) && $val->isAlnum($_POST['rpswd'])) {
+                            $ps=$_POST['pswd'];
+                            $rps=$_POST['rpswd'];
+                            if(md5($ps)===md5($rps)) $this->pswd=md5($ps);
+                        }
+                    }else $val->exc(e_empty);
+                }
             }
         }catch(Exception $error) {
             echo '<font color="red">'.$error.'</font><br>';
@@ -93,15 +95,19 @@ class processAddUserForm {
     public function addToDb() {
         $this->validate();
         if(!$this->error) {
-            $this->genId();
+           
             $db=new baseConfig();
             $qr="SELECT COUNT(*) as cnt\n"
                     . "FROM osoba \n"
                     . "WHERE pesel='$this->pesel' OR nip='$this->nip'";
             try {
-                if (isset($_GET['update'])) $query="UPDATE osoba SET (fname='$this->fname',lname='$this->lname',\n"
+                if (isset($_GET['update'])) {
+                    $query="UPDATE osoba SET (fname='$this->fname',lname='$this->lname',\n"
                             . " street='$this->street',nr_d='$this->nr_d',nr_m='$this->nr_m',city='$this->city',kod='$this->kod',country='$this->country',tel='$this->tel',pesel='$this->pesel',nip='$this->nip',mail='$this->mail',pswd='$this->pswd',aktyw=1,'')";
-                else {
+
+                    $r=$db->getRes($query);
+                }else {
+                     $this->genId();
                     $res=mysql_fetch_array($db->getRes($qr));
                     if ($res['cnt']>0) throw new Exception('User already in db');
                     else {

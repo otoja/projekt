@@ -17,7 +17,7 @@ if (isset($_POST['opis'])) {
         $db= new baseConfig();
         if($db->getRes($qry)) echo 'Dodano wizytę do oczekujących';
         else echo 'Nastąpił nieoczekiwany błąd.';
-    }
+    }else $val->exc($error);
 }
 
 ?>

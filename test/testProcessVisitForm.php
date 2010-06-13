@@ -34,7 +34,7 @@ class testProcessVisitForm extends PHPUnit_Extensions_SeleniumTestCase {
         $this->type("dom=document.forms['form'].country","test");
         $this->type("dom=document.forms['form'].tel","2147483647");
         $this->type("dom=document.forms['form'].pesel","99999888333");
-        $this->type("dom=document.forms['form'].nip","0000022000");
+        $this->type("dom=document.forms['form'].nip","1000022001");
         $this->type("dom=document.forms['form'].mail","test@test.ts");
         $this->type("dom=document.forms['form'].pswd","test");
         $this->type("dom=document.forms['form'].rpswd","test");
@@ -76,16 +76,16 @@ class testProcessVisitForm extends PHPUnit_Extensions_SeleniumTestCase {
         $this->click("xpath=//form[@id='form']//input[@type='submit']");
         $this->waitForPageToLoad(30000);
         $this->click('link=Terminarz');
-        $this->click("xpath=//table[@id='lekarz']//input[@type='button']");
-        $this->click("xpath=//table[@id='calendar']//tbody/tr[5]/td[4]/input[@type='button']");
+        $this->click("xpath=//table[@id='lekarz']//tr[2]/td/input[@type='button']");
+        $this->click("xpath=//table[@id='calendar']//tbody/tr[3]/td[2]/input[@type='button']");
         $this->click("xpath=//input[@value='Potwierdź']");
         $this->waitForExpression("Wiadomość została wysłana na adres test@test.ts");
         $this->click("link=Wyloguj");
     }
     public function testVisit() {
-        $this->registerPatient();
+      $this->registerPatient();
         $this->loginPatient();
-        $this->delete();
+       // $this->delete();
     }
 
     private function delete(){

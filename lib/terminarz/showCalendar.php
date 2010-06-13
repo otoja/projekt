@@ -64,7 +64,7 @@ for ($i=0; $i<25;$i++) {
             foreach ($wizyty as $key=>$wiz) {
                 if (!empty ($wiz) && (($i+16)==$wiz['st']) && (1==date("w",strtotime($wiz['data']))) && ($wiz['data']>=$poniedzialek && $wiz['data']<=$piatek))  $flaga=true;
             }if ($flaga)echo '<tr><td>'.$h.':'.$m.'</td><td '.$style_busy.'></td>';
-            else echo'<tr><td>'.$h.':'.$m.'</td><td '.$style_free.' onclick="javascript:getData(\'./lib/terminarz/confirm.php?id='.$id.'&st='.($i+16).'&date='.$date.'&d=0\',\'cont\')"></td>';
+            else echo'<tr><td>'.$h.':'.$m.'</td><td '.$style_free.' onclick="javascript:getData(\'./lib/terminarz/confirm.php?id='.$id.'&st='.($i+16).'&date='.$date.'&d=0\',\'cont\')"><input type="button" style="display:none"></input></td>';
             $flaga=false;
         }else echo '<tr><td>'.$h.':'.$m.'</td><td '.$style_empty.'></td>';
     }else echo '<tr><td>'.$h.':'.$m.'</td><td></td>';
@@ -75,7 +75,7 @@ for ($i=0; $i<25;$i++) {
                 if (!empty ($wiz) && (($i+16)==$wiz['st']) && (2==date("w",strtotime($wiz['data']))) && ($wiz['data']>=$poniedzialek && $wiz['data']<=$piatek))  $flaga=true;
             }if
             ($flaga)echo '<td '.$style_busy.'></td>';
-            else echo'<td '.$style_free.' onclick="javascript:getData(\'./lib/terminarz/confirm.php?id='.$id.'&st='.($i+16).'&date='.$date.'&d=1\',\'cont\')"></td>';
+            else echo'<td '.$style_free.' onclick="javascript:getData(\'./lib/terminarz/confirm.php?id='.$id.'&st='.($i+16).'&date='.$date.'&d=1\',\'cont\')"><input type="button" style="display:none"></input></td>';
             $flaga=false;
         }else echo '<td '.$style_empty.'></td>';
     }else echo '<td></td>';
@@ -86,7 +86,7 @@ for ($i=0; $i<25;$i++) {
                 if (!empty ($wiz) && (($i+16)==$wiz['st']) && (3==date("w",strtotime($wiz['data']))) && ($wiz['data']>=$poniedzialek && $wiz['data']<=$piatek))  $flaga=true;
             }if
             ($flaga)echo '<td '.$style_busy.'></td>';
-            else echo'<td '.$style_free.' onclick="javascript:getData(\'./lib/terminarz/confirm.php?id='.$id.'&st='.($i+16).'&date='.$date.'&d=2\',\'cont\')"></td>';
+            else echo'<td '.$style_free.' onclick="javascript:getData(\'./lib/terminarz/confirm.php?id='.$id.'&st='.($i+16).'&date='.$date.'&d=2\',\'cont\')"><input type="button" style="display:none"></input></td>';
             $flaga=false;
         }else echo '<td '.$style_empty.'></td>';
     }else echo '<td></td>';
@@ -97,7 +97,7 @@ for ($i=0; $i<25;$i++) {
                 if (!empty ($wiz) && (($i+16)==$wiz['st']) && (4==date("w",strtotime($wiz['data'])))  && ($wiz['data']>=$poniedzialek && $wiz['data']<=$piatek))  $flaga=true;
             }if
             ($flaga)echo '<td '.$style_busy.'></td>';
-            else echo'<td '.$style_free.' onclick="javascript:getData(\'./lib/terminarz/confirm.php?id='.$id.'&st='.($i+16).'&date='.$date.'&d=3\',\'cont\')"></td>';
+            else echo'<td '.$style_free.' onclick="javascript:getData(\'./lib/terminarz/confirm.php?id='.$id.'&st='.($i+16).'&date='.$date.'&d=3\',\'cont\')"><input type="button" style="display:none"></input></td>';
             $flaga=false;
         }else echo '<td '.$style_empty.'></td>';
     }else echo '<td></td>';
@@ -108,7 +108,7 @@ for ($i=0; $i<25;$i++) {
                 if (!empty ($wiz) && (($i+16)==$wiz['st']) && (5==date("w",strtotime($wiz['data']))) && ($wiz['data']>=$poniedzialek && $wiz['data']<=$piatek))  $flaga=true;
             }if
             ($flaga)echo '<td '.$style_busy.'></td></tr>';
-            else echo'<td '.$style_free.' onclick="javascript:getData(\'./lib/terminarz/confirm.php?id='.$id.'&st='.($i+16).'&date='.$date.'&d=4\',\'cont\')"></td></tr>';
+            else echo'<td '.$style_free.' onclick="javascript:getData(\'./lib/terminarz/confirm.php?id='.$id.'&st='.($i+16).'&date='.$date.'&d=4\',\'cont\')"><input type="button" style="display:none"></input></td></tr>';
             $flaga=false;
         }else echo '<td '.$style_empty.'></td></tr>';
     }else echo '<td></td></tr>';

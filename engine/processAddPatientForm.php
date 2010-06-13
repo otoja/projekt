@@ -59,5 +59,5 @@ class processAddPatientForm extends processAddUserForm {
 $u=new processAddPatientForm();
 $u->validate();
 $u->addToDb();
-header('Location: ../index.php');
+//header('Location: ../index.php');
 ?>

@@ -47,7 +47,7 @@ class modelUser {
         if ($mode) {
             switch($mode) {
                 case 'pacjent': {
-                        $form=new addPatientForm('./engine/processAddPatientForm.php?update', 'post');
+                        $form=new addPatientForm('../engine/processAddPatientForm.php?update', 'post');
                         $form->editForm($ident);
                         $form->display();
                         if ($_SERVER['REQUEST_METHOD']=='POST') {
@@ -59,7 +59,7 @@ class modelUser {
                     ;
 
                 case 'lekarz': {
-                        $form= new addDocForm('./engine/processAddDocForm.php?update','post');
+                        $form= new addDocForm('../engine/processAddDocForm.php?update','post');
                         $form->editForm($ident);
                         $form->display();
                         if($_SERVER['REQUEST_METHOD']=='POST') {
@@ -70,7 +70,7 @@ class modelUser {
                     } break
                     ;
                 default: {
-                        $form=new addEmpForm('./engine/processAddEmpForm.php?update', 'post');
+                        $form=new addEmpForm('../engine/processAddEmpForm.php?update', 'post');
                         $form->editForm($ident);
                         $form->display();
                         if ($_SERVER['REQUEST_METHOD']=='POST') {
@@ -127,7 +127,7 @@ class modelUser {
 $mod=new modelUser();
 if (isset($_GET['mode']))
     $mod->addUser($_GET['mode']);
-if (isset($_GET['edit']))
-    $mod->editUser('kamprz776178660');
+if ($_GET['mode']=='edit')
+    $mod->editUser($_GET['id']);
 // $user=$mod->getUserData('kamprz776178660');
 ?>
