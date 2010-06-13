@@ -1,0 +1,44 @@
+Merge branch 'master' of github.com:otoja/projekt
+
+Conflicts:
+	.htaccess
+	dokum/opis przypadkow.odt
+	engine/processActivevisitForm.php
+	engine/processAddBadForm.php
+	engine/processAddDocForm.php
+	engine/processAddEmpForm.php
+	engine/processAddPatientForm.php
+	engine/processAddUserForm.php
+	engine/processLoginForm.php
+	engine/processNewVisitForm.php
+	engine/processWorkinHsForm.php
+	forms/addBadForm.php
+	forms/addDocForm.php
+	forms/addEmpForm.php
+	forms/addPatientForm.php
+	forms/addUserForm.php
+	forms/loginForm.php
+	forms/newVisitForm.php
+	forms/workinHsForm.php
+	index.php
+	lib/auth.php
+	lib/baseConfig.php
+	lib/phpmailer/LICENSE
+	lib/phpmailer/docs/Note_for_SMTP_debugging.txt
+	lib/phpmailer/docs/pop3_article.txt
+	lib/phpmailer/mailConfig.php
+	lib/terminarz/addToCalendar.php
+	lib/terminarz/checkHours.php
+	lib/terminarz/confirm.php
+	lib/terminarz/showCalendar.php
+	lib/terminarz/showDoc.php
+	mailtest.php
+	menu/side.php
+	menu/top.php
+	mod/modEpr.php
+	mod/modelUser.php
+	nbproject/private/private.properties
+	nbproject/project.properties
+	nbproject/project.xml
+	test/testLoginForm.php
+	view/styl.css

@@ -1,0 +1,9 @@
+PHPUnit 3.4.5 by Sebastian Bergmann.
+
+Test rejestracji nowego pacjenta:
+            ...sprawdzanie istnienia formularza
+            Wykonany....kasowanie rekordu...Wykonany.
+
+Time: 38 seconds, Memory: 4.75Mb
+
+OK (2 tests, 22 assertions)
