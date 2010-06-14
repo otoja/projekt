@@ -102,9 +102,7 @@ class processAddUserForm {
                     . "WHERE pesel='$this->pesel' OR nip='$this->nip'";
             try {
                 if (isset($_GET['update'])) {
-                    $query="UPDATE osoba SET (fname='$this->fname',lname='$this->lname',\n"
-                            . " street='$this->street',nr_d='$this->nr_d',nr_m='$this->nr_m',city='$this->city',kod='$this->kod',country='$this->country',tel='$this->tel',pesel='$this->pesel',nip='$this->nip',mail='$this->mail',pswd='$this->pswd',aktyw=1,'')";
-
+                    $query="UPDATE osoba SET fname='$this->fname',lname='$this->lname', street='$this->street',nr_d='$this->nr_d',nr_m='$this->nr_m',city='$this->city',kod='$this->kod',country='$this->country',tel='$this->tel',pesel='$this->pesel',nip='$this->nip',mail='$this->mail',pswd='$this->pswd',aktyw=1 WHERE fname='$this->fname' AND lname='$this->lname'";
                     $r=$db->getRes($query);
                 }else {
                      $this->genId();

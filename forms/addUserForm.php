@@ -41,7 +41,6 @@ class addUserForm extends createForm {
             foreach ($this->elements as $key=>$element) {
                 if($element['mode']=='input' )
                     if(!empty($zm[$element[0]['name']]) AND ($element[0]['type']!='password')) {
-                        var_dump($element[0]['name']);
                         $this->elements[$key][0]['value']=stripslashes($zm[$element[0]['name']]);
                     }
             }

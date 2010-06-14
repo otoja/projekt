@@ -26,7 +26,7 @@ class modVis {
         $this->wiz=$id;
     }
     public function showAllDayVisit($date) {
-        $qry="SELECT o.fname, o.lname, l.gab, l.spec, u.data, u.start_stamp, u.pident, u.id_wiz FROM umowione_wizyty as u, osoba as o, lekarz as l WHERE  u.id_lekarz=l.id_lekarz AND l.id_osoba=o.id_osoba AND u.data=$date ORDER BY u.start_stamp";
+        $qry="SELECT o.fname, o.lname, l.gab, l.spec, u.data, u.start_stamp, u.pident, u.id_wiz FROM umowione_wizyty as u, osoba as o, lekarz as l WHERE  u.id_lekarz=l.id_lekarz AND l.id_osoba=o.id_osoba AND u.data='$date' ORDER BY u.start_stamp";
         $db=new baseConfig();
         $res=$db->getRes($qry);
         //if (mysql_fetch_array($res)) {
@@ -104,7 +104,7 @@ class modVis {
         $lek=new modelUser();
         $dane=$lek->getUserData($_SESSION['ident']);
         $id=$dane['id_lekarz'];
-        $qry="SELECT o.fname, o.lname, u.pident, u.akt, u.start_stamp, u.id_lekarz, u.id_wiz, u.opis FROM osoba as o, umowione_wizyty as u WHERE u.akt=1 AND u.id_lekarz='$id' AND o.ident=u.pident LIMIT 0, 30 ";
+        $qry="SELECT o.fname, o.lname, u.pident, u.akt, u.start_stamp, u.id_lekarz, u.id_wiz, u.opis FROM osoba as o, umowione_wizyty as u WHERE u.akt=1 AND u.id_lekarz='$id' AND o.ident=u.pident LIMIT 0, 30";
 
         $db=new baseConfig();
         $res=$db->getRes($qry);
@@ -112,8 +112,8 @@ class modVis {
         if($res) {
             $tab='<table><tr><td>Godzina</td><td>Imię</td><td>Nazwisko</td><td>Opis</td><td></td></tr>';
             while ($show=mysql_fetch_array($res)) {
-                $h=(int)(($wiz['start_stamp'])/2);
-                $m=(int)(($wiz['start_stamp'])%2*30);
+                $h=(int)(($show['start_stamp'])/2);
+                $m=(int)(($show['start_stamp'])%2*30);
                 ($h<10)?$h='0'.$h:$h;
                 ($m<10)?$m='0'.$m:$m;
                 $godz=$h.':'.$m;

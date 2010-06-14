@@ -47,37 +47,25 @@ class modelUser {
         if ($mode) {
             switch($mode) {
                 case 'pacjent': {
-                        $form=new addPatientForm('../engine/processAddPatientForm.php?update', 'post');
+                        $form=new addPatientForm('./engine/processAddPatientForm.php?update', 'post');
                         $form->editForm($ident);
                         $form->display();
-                        if ($_SERVER['REQUEST_METHOD']=='POST') {
-                            $add=new processAddPatientForm();
-                            $add->validate();
-                            $add->addToDb();
-                        }
+                        
                     }break
                     ;
 
                 case 'lekarz': {
-                        $form= new addDocForm('../engine/processAddDocForm.php?update','post');
+                        $form= new addDocForm('./engine/processAddDocForm.php?update','post');
                         $form->editForm($ident);
                         $form->display();
-                        if($_SERVER['REQUEST_METHOD']=='POST') {
-                            $add=new processAddDocForm();
-                            $add->validate();
-                            $add->addToDb();
-                        }
+                       
                     } break
                     ;
                 default: {
-                        $form=new addEmpForm('../engine/processAddEmpForm.php?update', 'post');
+                        $form=new addEmpForm('./engine/processAddEmpForm.php?update', 'post');
                         $form->editForm($ident);
                         $form->display();
-                        if ($_SERVER['REQUEST_METHOD']=='POST') {
-                            $add=new processAddEmpForm();
-                            $add->validate();
-                            $add->addToDb();
-                        }
+                        
                     }break
                     ;
             }

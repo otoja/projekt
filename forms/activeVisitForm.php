@@ -17,7 +17,7 @@ class activeVisitForm extends createForm {
                 $this->addInput('lname', 'text', $dane['lname'], 'Nazwisko', '', 'DISABLED');
                 $this->addTextArea('opis', '3', '20', 'opis', '');
                 $this->addInput('wyslij', 'submit', 'Aktywuj', '', '', '');
-            }else header('Location: ./mod/modelUser.php?mode=edit&act=true&id='.$id,'post');
+            }else header('Location: ../mod/modelUser.php?mode=edit&act=true&id='.$id,'post');
             //else echo 'konto nieaktywne';
         }
     }
